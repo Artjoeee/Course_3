@@ -212,3 +212,17 @@ vcpkg_installed/
 # test output & cache
 Testing/
 .cache/
+
+# Visual Studio
+.vs/
+bin/
+obj/
+Debug/
+Release/
+*.user
+*.suo
+*.ipch
+
+# Windows
+Thumbs.db
+Desktop.ini
