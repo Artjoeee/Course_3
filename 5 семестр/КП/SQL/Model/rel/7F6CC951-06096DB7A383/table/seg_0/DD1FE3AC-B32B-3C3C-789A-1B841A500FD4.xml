@@ -1,0 +1,119 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="DD1FE3AC-B32B-3C3C-789A-1B841A500FD4" schemaObject="E8A81E99-E9A7-2D69-DBD1-1A281160A93F" name="MEMBERSHIPS">
+<sourceConnName>SPORTICS</sourceConnName>
+<sourceObjSchema>ADMINISTRATOR</sourceObjSchema>
+<sourceObjName>MEMBERSHIPS</sourceObjName>
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:31:17 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="MEMBERSHIP_ID" id="C6AC51ED-1B70-EB4A-0BF8-CCFB4A83D3CB">
+<sourceConnName>SPORTICS</sourceConnName>
+<sourceObjSchema>MEMBERSHIPS</sourceObjSchema>
+<sourceObjName>MEMBERSHIP_ID</sourceObjName>
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:31:17 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementDisableCache>false</autoIncrementDisableCache>
+<autoIncrementCache>20</autoIncrementCache>
+<autoIncrementOrder>false</autoIncrementOrder>
+</Column>
+<Column name="NAME" id="B3D04CD1-222F-44A9-2800-281E90A6F005">
+<sourceConnName>SPORTICS</sourceConnName>
+<sourceObjSchema>MEMBERSHIPS</sourceObjSchema>
+<sourceObjName>NAME</sourceObjName>
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:31:17 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DESCRIPTION" id="0F8FAF36-1606-DA1A-B562-0BAD63A15189">
+<sourceConnName>SPORTICS</sourceConnName>
+<sourceObjSchema>MEMBERSHIPS</sourceObjSchema>
+<sourceObjName>DESCRIPTION</sourceObjName>
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:31:17 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 BYTE</dataTypeSize>
+<ownDataTypeParameters>200 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DURATION_MONTHS" id="B4AAEEC1-9058-1FA0-2D92-459B2B20E3CE">
+<sourceConnName>SPORTICS</sourceConnName>
+<sourceObjSchema>MEMBERSHIPS</sourceObjSchema>
+<sourceObjName>DURATION_MONTHS</sourceObjName>
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:31:17 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+<constraintName>SYS_C008486</constraintName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<checkConstraint>
+<implementationDef dbType="Generic Constraint" definition="duration_months &gt; 0"/>
+<implementationDef dbType="Oracle Database 21c" definition="duration_months &gt; 0"/>
+</checkConstraint>
+<ownDataTypeParameters>,2,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PRICE" id="07CB9870-15C0-5ED4-8BBD-A9CBB5E6290B">
+<sourceConnName>SPORTICS</sourceConnName>
+<sourceObjSchema>MEMBERSHIPS</sourceObjSchema>
+<sourceObjName>PRICE</sourceObjName>
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:31:17 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+<constraintName>SYS_C008487</constraintName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<checkConstraint>
+<implementationDef dbType="Generic Constraint" definition="price &gt;= 0"/>
+<implementationDef dbType="Oracle Database 21c" definition="price &gt;= 0"/>
+</checkConstraint>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="5CBB1FBF-1876-74E6-5386-17CA1FA2DD58" schemaObject="E8A81E99-E9A7-2D69-DBD1-1A281160A93F" name="MEMBERSHIPS_PK">
+<sourceConnName>SPORTICS</sourceConnName>
+<sourceObjSchema>ADMINISTRATOR</sourceObjSchema>
+<sourceObjName>SYS_C008488</sourceObjName>
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:31:17 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C6AC51ED-1B70-EB4A-0BF8-CCFB4A83D3CB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,74 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev20c class="oracle.dbtools.crest.model.design.storage.oracle.v20c.TableProxyOraclev20c" name="USERS" directorySegmentName="seg_0" id="3C39F5EE-A322-6A9E-4294-FAD5BDA0C382">
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:31:17 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+<schemaObject>E8A81E99-E9A7-2D69-DBD1-1A281160A93F</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>24BA2905-961B-A055-EFE2-1324E5EA8A40</segment>
+<tableSpace>8D40F704-EC1D-E4CF-2FAA-DA50F4D965AF</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="ROLE_NAME" id="33587506-59FC-A3E5-4D60-AF553B59D86A">
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:31:17 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="USERNAME" id="349B95B3-C76A-CBCB-EA4D-7EF081CF61EE">
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:31:17 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CREATED_AT" id="5A6A317E-80AD-1C42-B80D-928CCD4D59BD">
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:31:17 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+<defaultValue>SYSDATE</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="USER_ID" id="A7843553-C05B-44EF-C237-3B5E23B83B2A">
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:31:17 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+<autoIncrementDDL>IDENTITY_CLAUSE</autoIncrementDDL>
+</ColumnProxy>
+<ColumnProxy name="MUST_CHANGE_PASSWORD" id="CCF0FA9F-F6B5-9965-CB57-1FEDED28B077">
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:31:17 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+<defaultValue>&apos;N&apos;</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="PASSWORD_SALT" id="E7132EBB-8A55-79B0-B18F-38D7BFF5AB3E">
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:31:17 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PASSWORD_HASH" id="F1D4D0B1-8FDB-D636-C697-AF118244DA6F">
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:31:17 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="IS_ACTIVE" id="F34B1BCD-980B-3F44-FF37-1369AC7DC4B9">
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:31:17 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+<defaultValue>&apos;Y&apos;</defaultValue>
+</ColumnProxy>
+</columnProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="USERS_PK" id="76EE5C44-B5E6-9F4B-5B6C-69043B6DBF56">
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:31:17 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+<schemaObject>E8A81E99-E9A7-2D69-DBD1-1A281160A93F</schemaObject>
+<segment>DDA3742A-9A0F-1EEC-CCFE-5D3AC9F2DBC1</segment>
+<tableSpace>8D40F704-EC1D-E4CF-2FAA-DA50F4D965AF</tableSpace>
+<indexSegment>DDA3742A-9A0F-1EEC-CCFE-5D3AC9F2DBC1</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev20c>

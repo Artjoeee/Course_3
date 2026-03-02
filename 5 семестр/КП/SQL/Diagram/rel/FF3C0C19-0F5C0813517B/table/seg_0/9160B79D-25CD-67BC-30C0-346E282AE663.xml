@@ -1,0 +1,211 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="9160B79D-25CD-67BC-30C0-346E282AE663" schemaObject="307B61EC-3AA5-8817-4445-FF6771598365" name="CLIENTS">
+<sourceConnName>SPORTICS</sourceConnName>
+<sourceObjSchema>ADMINISTRATOR</sourceObjSchema>
+<sourceObjName>CLIENTS</sourceObjName>
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:55:20 UTC</createdTime>
+<ownerDesignName>Diagram</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="CLIENT_ID" id="A3F450E9-B631-3A9B-118C-218378138C48">
+<sourceConnName>SPORTICS</sourceConnName>
+<sourceObjSchema>CLIENTS</sourceObjSchema>
+<sourceObjName>CLIENT_ID</sourceObjName>
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:55:20 UTC</createdTime>
+<ownerDesignName>Diagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementDisableCache>false</autoIncrementDisableCache>
+<autoIncrementCache>20</autoIncrementCache>
+<autoIncrementOrder>false</autoIncrementOrder>
+</Column>
+<Column name="USER_ID" id="A74436FF-2EFF-634E-6FE2-843590A57D52">
+<sourceConnName>SPORTICS</sourceConnName>
+<sourceObjSchema>CLIENTS</sourceObjSchema>
+<sourceObjName>USER_ID</sourceObjName>
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:55:20 UTC</createdTime>
+<ownerDesignName>Diagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7B072E38-1B51-4ACB-AE03-19A9AD662B01" referredColumn="909DCE1D-3D96-0777-0E5D-57B0CF0E3BEE"/>
+</associations>
+</Column>
+<Column name="FIRST_NAME" id="A94F425A-8A97-89EA-5043-46E9DC1A2B77">
+<sourceConnName>SPORTICS</sourceConnName>
+<sourceObjSchema>CLIENTS</sourceObjSchema>
+<sourceObjName>FIRST_NAME</sourceObjName>
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:55:20 UTC</createdTime>
+<ownerDesignName>Diagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LAST_NAME" id="1642F62F-0305-D4DC-8B1A-69841C602991">
+<sourceConnName>SPORTICS</sourceConnName>
+<sourceObjSchema>CLIENTS</sourceObjSchema>
+<sourceObjName>LAST_NAME</sourceObjName>
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:55:20 UTC</createdTime>
+<ownerDesignName>Diagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PHONE_NUMBER" id="66597CE3-1995-C08A-7B57-76D61CD4978E">
+<sourceConnName>SPORTICS</sourceConnName>
+<sourceObjSchema>CLIENTS</sourceObjSchema>
+<sourceObjName>PHONE_NUMBER</sourceObjName>
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:55:20 UTC</createdTime>
+<ownerDesignName>Diagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EMAIL" id="C91677A3-68C7-F9CD-FF32-602BBA6C9ACA">
+<sourceConnName>SPORTICS</sourceConnName>
+<sourceObjSchema>CLIENTS</sourceObjSchema>
+<sourceObjName>EMAIL</sourceObjName>
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:55:20 UTC</createdTime>
+<ownerDesignName>Diagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<ownDataTypeParameters>100 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DATE_OF_BIRTH" id="D117FD27-E996-80CF-911E-B9D0D4CA07FE">
+<sourceConnName>SPORTICS</sourceConnName>
+<sourceObjSchema>CLIENTS</sourceObjSchema>
+<sourceObjName>DATE_OF_BIRTH</sourceObjName>
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:55:20 UTC</createdTime>
+<ownerDesignName>Diagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="REGISTRATION_DATE" id="95B5C011-48DA-8776-A678-9179350AA537">
+<sourceConnName>SPORTICS</sourceConnName>
+<sourceObjSchema>CLIENTS</sourceObjSchema>
+<sourceObjName>REGISTRATION_DATE</sourceObjName>
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:55:20 UTC</createdTime>
+<ownerDesignName>Diagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<defaultValue>SYSDATE</defaultValue>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="STATUS" id="000F36CF-205B-3F77-7938-1606877B0710">
+<sourceConnName>SPORTICS</sourceConnName>
+<sourceObjSchema>CLIENTS</sourceObjSchema>
+<sourceObjName>STATUS</sourceObjName>
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:55:20 UTC</createdTime>
+<ownerDesignName>Diagram</ownerDesignName>
+<constraintName>SYS_C008471</constraintName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<listOfValues>
+<valueDef value="&apos;ACTIVE&apos;" description=""/>
+<valueDef value="&apos;INACTIVE&apos;" description=""/>
+</listOfValues>
+<defaultValue>&apos;ACTIVE&apos;</defaultValue>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="681113B4-510B-C7AF-8426-D4453C1C1C8B" schemaObject="307B61EC-3AA5-8817-4445-FF6771598365" name="CLIENTS_PK">
+<sourceConnName>SPORTICS</sourceConnName>
+<sourceObjSchema>ADMINISTRATOR</sourceObjSchema>
+<sourceObjName>SYS_C008472</sourceObjName>
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:55:20 UTC</createdTime>
+<ownerDesignName>Diagram</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A3F450E9-B631-3A9B-118C-218378138C48"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="70A63485-5A22-356A-E155-B07EDFD2B36C" schemaObject="307B61EC-3AA5-8817-4445-FF6771598365" name="CLIENTS_USER_ID_UN">
+<sourceConnName>SPORTICS</sourceConnName>
+<sourceObjSchema>ADMINISTRATOR</sourceObjSchema>
+<sourceObjName>SYS_C008473</sourceObjName>
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:55:20 UTC</createdTime>
+<ownerDesignName>Diagram</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A74436FF-2EFF-634E-6FE2-843590A57D52"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5BD80785-C3F7-94E3-4AE4-FEA5D3945A65" schemaObject="307B61EC-3AA5-8817-4445-FF6771598365" name="CLIENTS_EMAIL_UN">
+<sourceConnName>SPORTICS</sourceConnName>
+<sourceObjSchema>ADMINISTRATOR</sourceObjSchema>
+<sourceObjName>SYS_C008474</sourceObjName>
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:55:20 UTC</createdTime>
+<ownerDesignName>Diagram</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C91677A3-68C7-F9CD-FF32-602BBA6C9ACA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C20EC2E2-C00D-A742-B4E5-2345CB8B8B75" name="FK_CLIENTS_USER">
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:55:20 UTC</createdTime>
+<ownerDesignName>Diagram</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A74436FF-2EFF-634E-6FE2-843590A57D52"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

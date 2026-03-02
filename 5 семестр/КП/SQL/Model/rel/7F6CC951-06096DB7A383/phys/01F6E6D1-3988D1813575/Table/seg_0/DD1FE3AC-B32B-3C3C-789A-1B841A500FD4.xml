@@ -1,0 +1,56 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev20c class="oracle.dbtools.crest.model.design.storage.oracle.v20c.TableProxyOraclev20c" name="MEMBERSHIPS" directorySegmentName="seg_0" id="DD1FE3AC-B32B-3C3C-789A-1B841A500FD4">
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:31:17 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+<schemaObject>E8A81E99-E9A7-2D69-DBD1-1A281160A93F</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>24BA2905-961B-A055-EFE2-1324E5EA8A40</segment>
+<tableSpace>8D40F704-EC1D-E4CF-2FAA-DA50F4D965AF</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="PRICE" id="07CB9870-15C0-5ED4-8BBD-A9CBB5E6290B">
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:31:17 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DESCRIPTION" id="0F8FAF36-1606-DA1A-B562-0BAD63A15189">
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:31:17 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="NAME" id="B3D04CD1-222F-44A9-2800-281E90A6F005">
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:31:17 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DURATION_MONTHS" id="B4AAEEC1-9058-1FA0-2D92-459B2B20E3CE">
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:31:17 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MEMBERSHIP_ID" id="C6AC51ED-1B70-EB4A-0BF8-CCFB4A83D3CB">
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:31:17 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+<autoIncrementDDL>IDENTITY_CLAUSE</autoIncrementDDL>
+</ColumnProxy>
+</columnProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="MEMBERSHIPS_PK" id="5CBB1FBF-1876-74E6-5386-17CA1FA2DD58">
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:31:17 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+<schemaObject>E8A81E99-E9A7-2D69-DBD1-1A281160A93F</schemaObject>
+<segment>DDA3742A-9A0F-1EEC-CCFE-5D3AC9F2DBC1</segment>
+<tableSpace>8D40F704-EC1D-E4CF-2FAA-DA50F4D965AF</tableSpace>
+<indexSegment>DDA3742A-9A0F-1EEC-CCFE-5D3AC9F2DBC1</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev20c>

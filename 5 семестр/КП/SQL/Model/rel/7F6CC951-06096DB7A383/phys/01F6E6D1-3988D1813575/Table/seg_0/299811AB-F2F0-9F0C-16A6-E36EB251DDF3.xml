@@ -1,0 +1,109 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev20c class="oracle.dbtools.crest.model.design.storage.oracle.v20c.TableProxyOraclev20c" name="COACHES" directorySegmentName="seg_0" id="299811AB-F2F0-9F0C-16A6-E36EB251DDF3">
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:31:17 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+<schemaObject>E8A81E99-E9A7-2D69-DBD1-1A281160A93F</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>24BA2905-961B-A055-EFE2-1324E5EA8A40</segment>
+<tableSpace>8D40F704-EC1D-E4CF-2FAA-DA50F4D965AF</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="FIRST_NAME" id="07FB6C87-3E83-1C7A-4FA4-7DEA6317CE84">
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:31:17 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PHONE_NUMBER" id="2D0F9C37-35DF-6068-33EF-91A63E43EB8D">
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:31:17 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="LAST_NAME" id="4056D6C6-3A8C-6A48-BC4D-68DC088645F4">
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:31:17 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="SPECIALIZATION" id="94585974-F850-48CE-D736-BA0C1131CDC5">
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:31:17 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="USER_ID" id="C4529F31-C10C-799F-4DAE-46FD1097ECD0">
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:31:17 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="STATUS" id="D69C3B45-00B1-8318-C88F-5BF2D2E4A03C">
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:31:17 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+<defaultValue>&apos;ACTIVE&apos;</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="HIRE_DATE" id="E1882C5A-4CD3-FD84-B93B-7ECC6812DA68">
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:31:17 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+<defaultValue>SYSDATE</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="EMAIL" id="F49C4D0C-3DF7-77C6-9700-C6C6BEEF7E20">
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:31:17 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="COACH_ID" id="FD8444EC-140D-C671-DFAA-FFFC1F1E5C87">
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:31:17 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+<autoIncrementDDL>IDENTITY_CLAUSE</autoIncrementDDL>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_COACHES_USER" id="74A422CD-1B24-3CC6-DC4D-273678328206">
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:31:17 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="COACHES_PK" id="AC23BDC7-CD4A-DDC7-25A2-91453D534287">
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:31:17 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+<schemaObject>E8A81E99-E9A7-2D69-DBD1-1A281160A93F</schemaObject>
+<segment>DDA3742A-9A0F-1EEC-CCFE-5D3AC9F2DBC1</segment>
+<tableSpace>8D40F704-EC1D-E4CF-2FAA-DA50F4D965AF</tableSpace>
+<indexSegment>DDA3742A-9A0F-1EEC-CCFE-5D3AC9F2DBC1</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+<uniqueKeys>
+<UniqueKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UniqueOraclev10g" name="COACHES_USER_ID_UN" id="5FCF05F6-2986-160C-85E1-35C86BDE482F">
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:31:17 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+<schemaObject>E8A81E99-E9A7-2D69-DBD1-1A281160A93F</schemaObject>
+<segment>DDA3742A-9A0F-1EEC-CCFE-5D3AC9F2DBC1</segment>
+<tableSpace>8D40F704-EC1D-E4CF-2FAA-DA50F4D965AF</tableSpace>
+<indexSegment>DDA3742A-9A0F-1EEC-CCFE-5D3AC9F2DBC1</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</UniqueKey>
+<UniqueKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UniqueOraclev10g" name="COACHES_EMAIL_UN" id="61E15610-A9F8-006E-6846-956A256D3216">
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:31:17 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+<schemaObject>E8A81E99-E9A7-2D69-DBD1-1A281160A93F</schemaObject>
+<segment>DDA3742A-9A0F-1EEC-CCFE-5D3AC9F2DBC1</segment>
+<tableSpace>8D40F704-EC1D-E4CF-2FAA-DA50F4D965AF</tableSpace>
+<indexSegment>DDA3742A-9A0F-1EEC-CCFE-5D3AC9F2DBC1</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</UniqueKey>
+</uniqueKeys>
+</TableProxyOraclev20c>

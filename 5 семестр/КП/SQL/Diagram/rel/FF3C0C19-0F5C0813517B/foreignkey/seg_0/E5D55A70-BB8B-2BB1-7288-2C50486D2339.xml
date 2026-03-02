@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="E5D55A70-BB8B-2BB1-7288-2C50486D2339" containerWithKeyObject="EFE5DD5E-FEB3-2B99-E130-BD9584B5C39D" localFKIndex="CA49EB8B-FDCB-F5B8-CCF4-8A963650601B" name="FK_SCHEDULE_COACH">
+<sourceConnName>SPORTICS</sourceConnName>
+<sourceObjSchema>ADMINISTRATOR</sourceObjSchema>
+<sourceObjName>FK_SCHEDULE_COACH</sourceObjName>
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:55:20 UTC</createdTime>
+<ownerDesignName>Diagram</ownerDesignName>
+<referredTableLongName>ADMINISTRATOR.COACHES</referredTableLongName>
+<deleteRule>SET NULL</deleteRule>
+<referredTableID>9ACDBDC1-36D8-66CD-950E-5411D337DF77</referredTableID>
+<keyObject>FF3DDF71-49C7-165D-F20C-3C52FA262CAC</keyObject>
+<referredKeyID>FF3DDF71-49C7-165D-F20C-3C52FA262CAC</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>COACH_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

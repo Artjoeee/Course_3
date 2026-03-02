@@ -1,0 +1,96 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev20c class="oracle.dbtools.crest.model.design.storage.oracle.v20c.TableProxyOraclev20c" name="CLIENT_SESSION_RECORDS" directorySegmentName="seg_0" id="8116AF70-46C3-295D-B875-6A35595CB19F">
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:31:17 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+<schemaObject>E8A81E99-E9A7-2D69-DBD1-1A281160A93F</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>24BA2905-961B-A055-EFE2-1324E5EA8A40</segment>
+<tableSpace>8D40F704-EC1D-E4CF-2FAA-DA50F4D965AF</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="ATTENDED" id="6DA97785-36CE-9FFE-E46F-00F7740A00EF">
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:31:17 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CLIENT_ID" id="752C42F7-A908-81D2-C85F-6C65AD00B453">
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:31:17 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ATTENDANCE_DATE" id="9629F2C1-E782-374D-D4DE-BF542D8115A8">
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:31:17 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="SCHEDULE_ID" id="9C7F09E1-174F-3490-1BA3-F61C23C54BE2">
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:31:17 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="RECORD_ID" id="9ED56357-EFF4-ABD1-B7C9-269E13BA3455">
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:31:17 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+<autoIncrementDDL>IDENTITY_CLAUSE</autoIncrementDDL>
+</ColumnProxy>
+<ColumnProxy name="PERFORMANCE_NOTES" id="C74D3C7A-0C70-BF03-0B81-6D24C6E86D16">
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:31:17 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="UQ_CLIENT_SCHEDULE" id="36C82D8E-02E7-B00D-3415-761EB1846F34">
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:31:17 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+<schemaObject>E8A81E99-E9A7-2D69-DBD1-1A281160A93F</schemaObject>
+<segment>DDA3742A-9A0F-1EEC-CCFE-5D3AC9F2DBC1</segment>
+<tableSpace>8D40F704-EC1D-E4CF-2FAA-DA50F4D965AF</tableSpace>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_RECORD_SCHEDULE" id="091785C3-0E4D-CC73-9545-77B5D4622CFA">
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:31:17 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_RECORD_CLIENT" id="27B5BA16-EB76-3112-51F2-9967209AA1B8">
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:31:17 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="CLIENT_SESSION_RECORDS_PK" id="CEC7308D-36EE-68C0-AD80-AB65B5D7086E">
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:31:17 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+<schemaObject>E8A81E99-E9A7-2D69-DBD1-1A281160A93F</schemaObject>
+<segment>DDA3742A-9A0F-1EEC-CCFE-5D3AC9F2DBC1</segment>
+<tableSpace>8D40F704-EC1D-E4CF-2FAA-DA50F4D965AF</tableSpace>
+<indexSegment>DDA3742A-9A0F-1EEC-CCFE-5D3AC9F2DBC1</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+<uniqueKeys>
+<UniqueKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UniqueOraclev10g" name="UQ_CLIENT_SCHEDULE" id="553C34A4-5033-9FCD-D31B-7480298A6603">
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:31:17 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+<segment>DDA3742A-9A0F-1EEC-CCFE-5D3AC9F2DBC1</segment>
+<tableSpace>8D40F704-EC1D-E4CF-2FAA-DA50F4D965AF</tableSpace>
+<existingIndex>36C82D8E-02E7-B00D-3415-761EB1846F34</existingIndex>
+<indexSegment>DDA3742A-9A0F-1EEC-CCFE-5D3AC9F2DBC1</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</UniqueKey>
+</uniqueKeys>
+</TableProxyOraclev20c>

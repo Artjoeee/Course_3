@@ -1,0 +1,153 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="EFE5DD5E-FEB3-2B99-E130-BD9584B5C39D" schemaObject="307B61EC-3AA5-8817-4445-FF6771598365" name="SCHEDULES">
+<sourceConnName>SPORTICS</sourceConnName>
+<sourceObjSchema>ADMINISTRATOR</sourceObjSchema>
+<sourceObjName>SCHEDULES</sourceObjName>
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:55:20 UTC</createdTime>
+<ownerDesignName>Diagram</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="SCHEDULE_ID" id="6231D532-DC9B-B02E-35A7-9EDF66D1E923">
+<sourceConnName>SPORTICS</sourceConnName>
+<sourceObjSchema>SCHEDULES</sourceObjSchema>
+<sourceObjName>SCHEDULE_ID</sourceObjName>
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:55:20 UTC</createdTime>
+<ownerDesignName>Diagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementDisableCache>false</autoIncrementDisableCache>
+<autoIncrementCache>20</autoIncrementCache>
+<autoIncrementOrder>false</autoIncrementOrder>
+</Column>
+<Column name="COACH_ID" id="2CC554CE-30BD-D210-1879-DA414466A84A">
+<sourceConnName>SPORTICS</sourceConnName>
+<sourceObjSchema>SCHEDULES</sourceObjSchema>
+<sourceObjName>COACH_ID</sourceObjName>
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:55:20 UTC</createdTime>
+<ownerDesignName>Diagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E5D55A70-BB8B-2BB1-7288-2C50486D2339" referredColumn="EF7A956C-5E48-B7A3-B478-04808D47A35D"/>
+</associations>
+</Column>
+<Column name="SESSION_NAME" id="A60D41DD-9811-0909-083F-4E7DE4628B6E">
+<sourceConnName>SPORTICS</sourceConnName>
+<sourceObjSchema>SCHEDULES</sourceObjSchema>
+<sourceObjName>SESSION_NAME</sourceObjName>
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:55:20 UTC</createdTime>
+<ownerDesignName>Diagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<ownDataTypeParameters>100 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SESSION_DATE" id="1771C454-B52B-6D49-0FF0-DF4702A3C99E">
+<sourceConnName>SPORTICS</sourceConnName>
+<sourceObjSchema>SCHEDULES</sourceObjSchema>
+<sourceObjName>SESSION_DATE</sourceObjName>
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:55:20 UTC</createdTime>
+<ownerDesignName>Diagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="START_TIME" id="945EF34D-F687-5E22-EB6E-73621155820D">
+<sourceConnName>SPORTICS</sourceConnName>
+<sourceObjSchema>SCHEDULES</sourceObjSchema>
+<sourceObjName>START_TIME</sourceObjName>
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:55:20 UTC</createdTime>
+<ownerDesignName>Diagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="END_TIME" id="491A2E13-849B-6CC9-403B-D3B321CC05F8">
+<sourceConnName>SPORTICS</sourceConnName>
+<sourceObjSchema>SCHEDULES</sourceObjSchema>
+<sourceObjName>END_TIME</sourceObjName>
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:55:20 UTC</createdTime>
+<ownerDesignName>Diagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CAPACITY" id="89A9AE12-56A4-1728-13BB-00E18D42ED0F">
+<sourceConnName>SPORTICS</sourceConnName>
+<sourceObjSchema>SCHEDULES</sourceObjSchema>
+<sourceObjName>CAPACITY</sourceObjName>
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:55:20 UTC</createdTime>
+<ownerDesignName>Diagram</ownerDesignName>
+<constraintName>SYS_C008501</constraintName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<checkConstraint>
+<implementationDef dbType="Generic Constraint" definition="capacity &gt; 0"/>
+<implementationDef dbType="Oracle Database 21c" definition="capacity &gt; 0"/>
+</checkConstraint>
+<defaultValue>10</defaultValue>
+<ownDataTypeParameters>,3,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="5EA4397F-2907-23DF-96AB-935FA5D667FA" schemaObject="307B61EC-3AA5-8817-4445-FF6771598365" name="SCHEDULES_PK">
+<sourceConnName>SPORTICS</sourceConnName>
+<sourceObjSchema>ADMINISTRATOR</sourceObjSchema>
+<sourceObjName>SYS_C008502</sourceObjName>
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:55:20 UTC</createdTime>
+<ownerDesignName>Diagram</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6231D532-DC9B-B02E-35A7-9EDF66D1E923"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="CA49EB8B-FDCB-F5B8-CCF4-8A963650601B" name="FK_SCHEDULE_COACH">
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:55:20 UTC</createdTime>
+<ownerDesignName>Diagram</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2CC554CE-30BD-D210-1879-DA414466A84A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

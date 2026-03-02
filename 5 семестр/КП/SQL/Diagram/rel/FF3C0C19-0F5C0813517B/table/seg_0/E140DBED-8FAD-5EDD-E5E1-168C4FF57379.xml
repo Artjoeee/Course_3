@@ -1,0 +1,168 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E140DBED-8FAD-5EDD-E5E1-168C4FF57379" schemaObject="307B61EC-3AA5-8817-4445-FF6771598365" name="MEMBERSHIP_ORDERS">
+<sourceConnName>SPORTICS</sourceConnName>
+<sourceObjSchema>ADMINISTRATOR</sourceObjSchema>
+<sourceObjName>MEMBERSHIP_ORDERS</sourceObjName>
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:55:20 UTC</createdTime>
+<ownerDesignName>Diagram</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ORDER_ID" id="E9BE515F-D657-3BF9-D47C-19FB782468B6">
+<sourceConnName>SPORTICS</sourceConnName>
+<sourceObjSchema>MEMBERSHIP_ORDERS</sourceObjSchema>
+<sourceObjName>ORDER_ID</sourceObjName>
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:55:20 UTC</createdTime>
+<ownerDesignName>Diagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementDisableCache>false</autoIncrementDisableCache>
+<autoIncrementCache>20</autoIncrementCache>
+<autoIncrementOrder>false</autoIncrementOrder>
+</Column>
+<Column name="CLIENT_ID" id="93E0F583-8040-5F7E-3113-2FE03B1EDEF3">
+<sourceConnName>SPORTICS</sourceConnName>
+<sourceObjSchema>MEMBERSHIP_ORDERS</sourceObjSchema>
+<sourceObjName>CLIENT_ID</sourceObjName>
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:55:20 UTC</createdTime>
+<ownerDesignName>Diagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="61F5ACD5-B8F6-0737-10B6-AA8223122940" referredColumn="A3F450E9-B631-3A9B-118C-218378138C48"/>
+</associations>
+</Column>
+<Column name="MEMBERSHIP_ID" id="0BC589AC-2E80-46B0-8014-644D7A4C5F32">
+<sourceConnName>SPORTICS</sourceConnName>
+<sourceObjSchema>MEMBERSHIP_ORDERS</sourceObjSchema>
+<sourceObjName>MEMBERSHIP_ID</sourceObjName>
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:55:20 UTC</createdTime>
+<ownerDesignName>Diagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="EEC747D4-E246-B075-F35E-4BD1C6226C26" referredColumn="5B55404D-9A9A-5F0D-171E-BA62F191258F"/>
+</associations>
+</Column>
+<Column name="ORDER_DATE" id="DF2088EE-2873-E7E9-7D68-473C5E43CBC3">
+<sourceConnName>SPORTICS</sourceConnName>
+<sourceObjSchema>MEMBERSHIP_ORDERS</sourceObjSchema>
+<sourceObjName>ORDER_DATE</sourceObjName>
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:55:20 UTC</createdTime>
+<ownerDesignName>Diagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<defaultValue>SYSDATE</defaultValue>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="START_DATE" id="C91FA8C4-EBC2-6913-2AD8-867A7F917C29">
+<sourceConnName>SPORTICS</sourceConnName>
+<sourceObjSchema>MEMBERSHIP_ORDERS</sourceObjSchema>
+<sourceObjName>START_DATE</sourceObjName>
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:55:20 UTC</createdTime>
+<ownerDesignName>Diagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="END_DATE" id="E4D7835D-6D15-BCD3-8403-407EEEA0748E">
+<sourceConnName>SPORTICS</sourceConnName>
+<sourceObjSchema>MEMBERSHIP_ORDERS</sourceObjSchema>
+<sourceObjName>END_DATE</sourceObjName>
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:55:20 UTC</createdTime>
+<ownerDesignName>Diagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="STATUS" id="CA7706B7-950B-6D30-DC4F-18E407B207BB">
+<sourceConnName>SPORTICS</sourceConnName>
+<sourceObjSchema>MEMBERSHIP_ORDERS</sourceObjSchema>
+<sourceObjName>STATUS</sourceObjName>
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:55:20 UTC</createdTime>
+<ownerDesignName>Diagram</ownerDesignName>
+<constraintName>SYS_C008492</constraintName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<listOfValues>
+<valueDef value="&apos;ACTIVE&apos;" description=""/>
+<valueDef value="&apos;CANCELLED&apos;" description=""/>
+<valueDef value="&apos;EXPIRED&apos;" description=""/>
+</listOfValues>
+<defaultValue>&apos;ACTIVE&apos;</defaultValue>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="98219D1A-18E5-2AFF-2FFD-7D96AE41B060" schemaObject="307B61EC-3AA5-8817-4445-FF6771598365" name="MEMBERSHIP_ORDERS_PK">
+<sourceConnName>SPORTICS</sourceConnName>
+<sourceObjSchema>ADMINISTRATOR</sourceObjSchema>
+<sourceObjName>SYS_C008493</sourceObjName>
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:55:20 UTC</createdTime>
+<ownerDesignName>Diagram</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E9BE515F-D657-3BF9-D47C-19FB782468B6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9C531F8E-C27A-C1AB-BEA0-AB4DCB99F597" name="FK_ORDER_CLIENT">
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:55:20 UTC</createdTime>
+<ownerDesignName>Diagram</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="93E0F583-8040-5F7E-3113-2FE03B1EDEF3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1C92E71A-D6A0-14EE-40F6-74D37D5492C6" name="FK_ORDER_MEMBERSHIP">
+<createdBy>artzh</createdBy>
+<createdTime>2025-12-08 21:55:20 UTC</createdTime>
+<ownerDesignName>Diagram</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0BC589AC-2E80-46B0-8014-644D7A4C5F32"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
