@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TDWA02-01</title>
+    <link rel="stylesheet" href="TDWA02-01.css">
+</head>
+<body>
+    <h1>TDWA02-01</h1>
+
+    <div class="controls">
+        <label>Operation:
+            <select id="op">
+                <option value="add">add</option>
+                <option value="sub">sub</option>
+                <option value="mul">mul</option>
+                <option value="div">div</option>
+            </select>
+        </label>
+
+        <label>X:
+            <input type="number" id="x" placeholder='0'>
+        </label>
+
+        <label>Y:
+            <input type="number" id="y" placeholder='0'>
+        </label>
+    </div>
+
+    <div class="buttons">
+        <button onclick="sendGet()">GET</button>
+        <button onclick="sendPost()">POST</button>
+        <button onclick="sendPut()">PUT</button>
+        <button onclick="sendDelete()">DELETE</button>
+    </div>
+
+    <h2>Result:</h2>
+    <pre id="result"></pre>
+
+    <script src="TDWA02-01.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+    margin: 40px;
+    text-align: center;
+}
+
+h1 {
+    color: #2c3e50;
+}
+
+.controls {
+    margin-bottom: 20px;
+}
+
+.controls label {
+    margin-right: 15px;
+}
+
+input, select {
+    padding: 5px;
+    margin-left: 5px;
+}
+
+.buttons button {
+    padding: 10px 15px;
+    margin-right: 10px;
+    border: none;
+    background-color: #db34db;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.buttons button:hover {
+    background-color: #9a29b9;
+}
+
+pre {
+    background: white;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin: 10px 400px 10px 400px;
+    text-align: left;
+    color: #179e44;
+}
