@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06-02</title>
+</head>
+<body>
+    <h2>Отправка письма</h2>
+    <form method="POST" action="/">
+        <label>Отправитель (email):</label><br>
+        <input type="email" name="sender" required><br><br>
+
+        <label>Получатель (email):</label><br>
+        <input type="email" name="reciver" required><br><br>
+
+        <label>Сообщение:</label><br>
+        <textarea name="message" rows="5" cols="40" required></textarea><br><br>
+
+        <button type="submit">Отправить</button>
+    </form>
+</body>
+</html>

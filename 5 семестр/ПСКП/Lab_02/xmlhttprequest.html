@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xmlhttprequest</title>
+</head>
+<body>
+    <div id="name"></div>
+
+    <script>
+        let xhr = new XMLHttpRequest();
+        xhr.responseType = "text";
+
+        xhr.open("GET", "http://localhost:5000/api/name");
+        xhr.send();
+
+        const name = document.getElementById("name");
+
+        xhr.onload = function () {
+            if (xhr.status != 200) {
+                name.innerHTML = "Не найдено";
+            }
+            else {
+                name.innerHTML = xhr.response;
+            }
+        }    
+    </script>
+</body>
+</html>

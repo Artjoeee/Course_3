@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10-01</title>
+</head>
+<body>
+    <h1>10-01</h1>
+    <button id="startBtn">startWS</button>
+    <div id="log"></div>
+
+<script>
+    const logEl = document.getElementById('log');
+    const startBtn = document.getElementById('startBtn');
+
+    let ws = null;
+    let sendInterval = null;
+    let clientN = 0;
+    let autoStopTimeout = null;
+
+    function log(msg) {
+        const t = new Date().toLocaleTimeString();
+
+        logEl.innerHTML += `<br>[${t}] ${msg}</br>`;
+    }
+
+    function startWS() {
+        // if (ws && (ws.readyState === WebSocket.OPEN || ws.readyState === WebSocket.CONNECTING)) {
+        //     log('WS уже открыт/подключается.');
+        //     return;
+        // }
+
+        ws = new WebSocket('ws://localhost:4000');
+
+        ws.addEventListener('open', () => {
+            log('WS open');
+
+            clientN = 0;
+            
+            sendInterval = setInterval(() => {
+                clientN++;
+
+                const msg = `10-01-client: ${clientN}`;
+
+                if (ws.readyState === WebSocket.OPEN) {
+                    ws.send(msg);
+                    log('Отправлено: ' + msg);
+                } 
+                else {
+                    log('WS not open');
+                }
+            }, 3000);
+
+            autoStopTimeout = setTimeout(() => {
+                if (sendInterval) {
+                    clearInterval(sendInterval);
+                    sendInterval = null;
+
+                    log('Закрытие сервера через 25 секунд');
+                }
+
+                if (ws && ws.readyState === WebSocket.OPEN) {
+                    ws.close();
+                    log('Соединение прервано');
+                }
+            }, 25000);
+        });
+
+        ws.addEventListener('message', (ev) => {
+            log('Получено: ' + ev.data);
+        });
+
+        ws.addEventListener('close', () => {
+            log('WS closed');
+
+            if (sendInterval) { 
+                clearInterval(sendInterval); sendInterval = null; 
+            }
+
+            if (autoStopTimeout) { 
+                clearTimeout(autoStopTimeout); autoStopTimeout = null; 
+            }
+        });
+
+        ws.addEventListener('error', (err) => {
+            log('Ошибка: ' + err);
+        });
+    }
+    
+    startBtn.addEventListener('click', startWS);
+</script>
+</body>
+</html>

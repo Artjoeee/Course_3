@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>POST /formparameter</h2>
+    <form action="/formparameter" method="post" enctype="multipart/form-data">
+    <label>
+      Имя:
+      <input type="text" name="username" required>
+    </label>
+    <br><br>
+    <label>
+      Возраст:
+      <input type="number" name="age" min="1" max="120">
+    </label>
+    <br><br>
+    <label>
+      Дата рождения:
+      <input type="date" name="birthdate">
+    </label>
+    <br><br>
+    <label>
+      Согласен с условиями:
+      <input type="checkbox" name="agreement" value="yes">
+    </label>
+    <br><br>
+    <label>Пол:</label>
+    <label><input type="radio" name="gender" value="male"> Мужской</label>
+    <label><input type="radio" name="gender" value="female"> Женский</label>
+    <br><br>
+    <label>
+      Комментарий:
+      <textarea name="comment" placeholder="Введите сообщение..."></textarea>
+    </label>
+    <br><br>
+    <label>
+      Прикрепить файл:
+      <input type="file" name="file">
+    </label>
+
+    <br>
+    
+    <input type="submit" name="action" value="Отправить">
+    <input type="submit" name="action" value="Сбросить">
+  </form>
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04-02</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        #get_result {
+            margin-bottom: 20px;
+            min-height: 50px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        button {
+            margin: 5px;
+            padding: 8px 16px;
+            cursor: pointer;
+        }
+
+        div > div {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+            width: 250px;
+        }
+
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input {
+            padding: 6px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        div > div > button {
+            width: 80px;
+            margin: 5px 5px 0 0;
+        }
+
+        div > div:last-child {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="get_result"></div>
+    <button onclick="Get()">GET</button>
+
+    <div>
+        <div>
+            <label>Идентификатор</label>
+            <input type="number" id="Id" min="0">
+        </div>
+        <div>
+            <label>ФИО</label>
+            <input type="text" id="Name">
+        </div>
+        <div>
+            <label>Дата рождения</label>
+            <input type="date" id="BDay">
+        </div>
+        <button onclick="Post()">POST</button>
+        <button onclick="Put()">PUT</button>
+        <button onclick="Delete()">DELETE</button>
+    </div>
+
+    <script>
+        const baseUrl = 'http://localhost:5000/api/db';
+
+        function validateDate(dateString) {
+            const today = new Date();
+            const inputDate = new Date(dateString);
+            inputDate.setHours(0, 0, 0, 0);
+            return inputDate <= today;
+        }
+
+        function validateFields(requireId = true) {
+            if (requireId && !Id.value) {
+                alert('Введите идентификатор');
+                return false;
+            }
+            if (!Name.value.trim()) {
+                alert('Введите ФИО');
+                return false;
+            }
+            if (!BDay.value) {
+                alert('Введите дату рождения');
+                return false;
+            }
+            if (!validateDate(BDay.value)) {
+                alert('Дата рождения не может быть в будущем');
+                return false;
+            }
+            return true;
+        }
+
+        function Get() {
+            console.log('GET');
+            fetch(baseUrl, {
+                method: 'GET',
+                headers: {'content-type': 'application/json', 'accept': 'application/json'}
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log('GET data:', data);
+                get_result.innerHTML = '';
+                data.forEach(el => {
+                    get_result.innerHTML += `${el.id}. ${el.name}. ${el.bday}<br/>`;
+                });
+            })
+            .catch(err => console.error(err));
+        }
+
+        function Post() {
+            console.log('POST');
+            if (!validateFields()) return;
+
+            let id = parseInt(Id.value);
+            fetch(baseUrl, {
+                method: 'GET',
+                headers: {'content-type': 'application/json', 'accept': 'application/json'}
+            })
+            .then(res => res.json())
+            .then(data => {
+                const exists = data.some(el => el.id === id);
+                if (exists) {
+                    alert(`Запись с ID ${id} уже существует`);
+                    return;
+                }
+                
+                fetch(baseUrl, {
+                    method: 'POST',
+                    headers: {'content-type': 'application/json', 'accept': 'application/json'},
+                    body: JSON.stringify({id: id, name: Name.value, bday: BDay.value})
+                })
+                .then(res => res.json())
+                .then(data => {
+                    console.log('POST data:', data);
+                    Get();
+                })
+                .catch(err => console.error(err));
+            })
+            .catch(err => console.error(err));
+        }
+
+        function Put() {
+            console.log('PUT');
+            if (!Id.value) {
+                alert('Введите ID для обновления');
+                return;
+            }
+
+            if (!validateFields(false)) return;
+
+            let id = parseInt(Id.value);
+
+            fetch(`${baseUrl}?id=${id}`, {
+                method: 'PUT',
+                headers: {'content-type': 'application/json', 'accept': 'application/json'},
+                body: JSON.stringify({name: Name.value, bday: BDay.value})
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log('PUT data:', data);
+                Get();
+            })
+            .catch(err => console.error(err));
+        }
+
+        function Delete() {
+            console.log('DELETE');
+            if (!Id.value) {
+                alert('Введите ID для удаления');
+                return;
+            }
+
+            let id = parseInt(Id.value);
+
+            fetch(baseUrl, {
+                method: 'GET',
+                headers: {'content-type': 'application/json', 'accept': 'application/json'}
+            })
+            .then(res => res.json())
+            .then(data => {
+                const exists = data.some(el => el.id === id);
+                if (!exists) {
+                    alert(`Запись с ID ${id} не существует`);
+                    return;
+                }
+                
+                fetch(`${baseUrl}?id=${id}`, {
+                    method: 'DELETE',
+                    headers: {'accept': 'application/json'}
+                })
+                .then(res => res.json())
+                .then(data => {
+                    console.log('DELETE data:', data);
+                    Get();
+                })
+                .catch(err => console.error(err));
+                })
+            .catch(err => console.error(err));
+        }
+
+        Id.addEventListener('change', () => {
+            const id = parseInt(Id.value);
+            if (!id) return;
+
+            fetch(baseUrl, {
+                method: 'GET',
+                headers: {'content-type': 'application/json', 'accept': 'application/json'}
+            })
+            .then(res => res.json())
+            .then(data => {
+                const found = data.find(el => el.id === id);
+                if (found) {
+                    Name.value = found.name;
+                    BDay.value = found.bday.slice(0, 10);
+                } else {
+                    Name.value = '';
+                    BDay.value = '';
+                }
+            })
+            .catch(err => console.error(err));
+        });
+    </script>
+</body>
+</html>

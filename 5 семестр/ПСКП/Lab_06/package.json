@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "m0603-art": "^1.0.0",
+    "nodemailer": "^7.0.9"
+  }
+}
