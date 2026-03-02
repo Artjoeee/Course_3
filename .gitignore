@@ -168,7 +168,6 @@ vite.config.ts.timestamp-*
 *.dll
 *.so.*
 
-
 # Fortran module files
 *.mod
 *.smod
@@ -217,12 +216,53 @@ Testing/
 .vs/
 bin/
 obj/
+out/
 Debug/
 Release/
 *.user
 *.suo
 *.ipch
+*.userosscache
+*.sln.docstates
 
 # Windows
 Thumbs.db
 Desktop.ini
+.DS_Store
+
+# Rider / VS Code
+.idea/
+.vscode/
+
+# ASP.NET Core
+appsettings.Development.json
+appsettings.*.local.json
+
+# Secrets
+secrets.json
+
+# Publish output
+publish/
+
+# NuGet
+*.nupkg
+.nuget/
+packages/
+
+# Unity generated folders
+Library/
+Temp/
+Obj/
+Build/
+Builds/
+Logs/
+UserSettings/
+
+# Memory captures
+MemoryCaptures/
+
+# Crash reports
+sysinfo.txt
+
+# Addressables
+ServerData/
