@@ -1,0 +1,156 @@
+-- 1
+-- docker exec -it oracle-xe bash
+-- cat /opt/oracle/homes/OraDBHome21cXE/network/admin/sqlnet.ora
+-- cat /opt/oracle/homes/OraDBHome21cXE/network/admin/tnsnames.ora
+
+
+-- 2
+-- sqlplus system/MyStrongPassw0rd@XEPDB1
+-- SHOW PARAMETER;
+
+
+-- 3
+-- ALTER SESSION SET CONTAINER = XEPDB1;
+-- SELECT tablespace_name FROM dba_tablespaces;
+-- SELECT tablespace_name, file_name, bytes/1024/1024 AS size_mb FROM dba_data_files;
+-- SELECT role FROM dba_roles;
+-- SELECT username, account_status FROM dba_users;
+
+
+-- 4
+-- regedit.exe
+
+
+-- 5
+-- echo "ZAICORE_XEPDB1 =
+--    (DESCRIPTION =
+--      (ADDRESS = (PROTOCOL = TCP)(HOST = 0.0.0.0)(PORT = 1521))
+--      (CONNECT_DATA =
+--        (SERVER = DEDICATED)
+--        (SERVICE_NAME = XEPDB1)
+--      )
+--    )"
+
+
+-- 6
+ALTER SESSION SET CONTAINER = CDB$ROOT;
+ALTER SESSION SET CONTAINER = XEPDB1;
+
+CREATE TABLESPACE TS_ZAI
+    DATAFILE 'TS_ZAI.dbf'
+    SIZE 7 m
+    AUTOEXTEND ON NEXT 5 m
+    MAXSIZE 20 m
+    EXTENT MANAGEMENT LOCAL;
+    
+DROP TABLESPACE TS_ZAI INCLUDING CONTENTS AND DATAFILES;
+
+
+CREATE TEMPORARY TABLESPACE TS_ZAI_TEMP
+    TEMPFILE 'TS_ZAI_TEMP.dbf'
+    SIZE 5 m
+    AUTOEXTEND ON NEXT 3 m
+    MAXSIZE 30 m
+    EXTENT MANAGEMENT LOCAL;
+    
+DROP TABLESPACE TS_ZAI_TEMP INCLUDING CONTENTS AND DATAFILES;
+
+
+// 4
+CREATE ROLE RL_ZAICORE;
+GRANT CREATE SESSION,
+        CREATE TABLE,
+        CREATE TABLESPACE,
+        CREATE VIEW,
+        CREATE PROCEDURE,
+        DROP ANY TABLE,
+        DROP TABLESPACE,
+        DROP ANY VIEW,
+        DROP ANY PROCEDURE TO RL_ZAICORE;
+        
+DROP ROLE RL_ZAICORE;
+
+
+CREATE PROFILE PF_ZAICORE LIMIT
+    PASSWORD_LIFE_TIME 180
+    SESSIONS_PER_USER 3
+    FAILED_LOGIN_ATTEMPTS 7
+    PASSWORD_LOCK_TIME 1
+    PASSWORD_REUSE_TIME 10
+    PASSWORD_GRACE_TIME DEFAULT
+    CONNECT_TIME 180
+    IDLE_TIME 30;
+
+DROP PROFILE PF_ZAICORE CASCADE;
+
+
+CREATE USER ZAICORE IDENTIFIED BY 12345
+    DEFAULT TABLESPACE TS_ZAI QUOTA UNLIMITED ON TS_ZAI
+    TEMPORARY TABLESPACE TS_ZAI_TEMP
+    PROFILE PF_ZAICORE
+    ACCOUNT UNLOCK;
+
+GRANT RL_ZAICORE TO ZAICORE;
+
+REVOKE RL_ZAICORE FROM ZAICORE;
+
+DROP USER ZAICORE;
+
+
+CREATE TABLE ZAI_TABLE (
+    ID   NUMBER PRIMARY KEY,
+    NAME VARCHAR2(50),
+    CREATED_AT DATE DEFAULT SYSDATE
+);
+
+INSERT INTO ZAI_TABLE (ID, NAME) VALUES (1, 'Первая запись');
+INSERT INTO ZAI_TABLE (ID, NAME) VALUES (2, 'Вторая запись');
+
+DROP TABLE ZAI_TABLE;
+
+COMMIT;
+
+
+-- sqlplus ZAICORE/12345@ZAICORE_XEPDB1
+
+
+-- 7
+-- SELECT * FROM ZAI_TABLE;
+
+
+-- 8
+-- HELP
+-- HELP TIMING
+
+-- TIMING START MY_QUERY;
+-- SELECT * FROM ZAI_TABLE; 
+-- TIMING STOP;
+-- -
+
+
+-- 9
+-- HELP DESCRIBE
+-- DESCRIBE ZAI_TABLE
+
+
+-- 10
+-- SELECT segment_name, segment_type, tablespace_name, bytes
+-- FROM user_segments;
+
+
+-- 11
+CREATE OR REPLACE VIEW user_segments_summary AS
+SELECT 
+    COUNT(*) AS segment_count,
+    SUM(extents) AS total_extents,
+    SUM(blocks) AS total_blocks,
+    ROUND(SUM(bytes)/1024, 2) AS total_kb
+FROM user_segments;
+
+-- SELECT * FROM user_segments_summary;
+
+-- DROP VIEW user_segments_summary;
+
+SELECT sid, serial#, username, status, osuser, machine, program
+FROM v$session
+WHERE username IS NOT NULL;

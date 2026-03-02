@@ -1,0 +1,366 @@
+ALTER SESSION SET CONTAINER = XEPDB1;
+
+-- НЕЯВНЫЕ КУРСОРЫ
+
+-- 1
+DECLARE
+    v_name FACULTY.FACULTY_NAME%TYPE;
+BEGIN
+    SELECT FACULTY_NAME INTO v_name
+    FROM FACULTY
+    WHERE FACULTY = 'ИДиП';
+
+    DBMS_OUTPUT.PUT_LINE('Факультет: ' || v_name);
+END;
+
+
+
+-- 2
+DECLARE
+    v_name FACULTY.FACULTY_NAME%TYPE;
+BEGIN
+    SELECT FACULTY_NAME INTO v_name
+    FROM FACULTY;
+
+EXCEPTION
+    WHEN OTHERS THEN
+        DBMS_OUTPUT.PUT_LINE('Ошибка: ' || SQLERRM);
+        DBMS_OUTPUT.PUT_LINE('Код: ' || SQLCODE);
+END;
+
+
+
+-- 3
+DECLARE
+    v_name FACULTY.FACULTY_NAME%TYPE;
+BEGIN
+    SELECT FACULTY_NAME INTO v_name
+    FROM FACULTY;
+EXCEPTION
+    WHEN TOO_MANY_ROWS THEN
+        DBMS_OUTPUT.PUT_LINE('Ошибка: выбрано более одной строки!');
+END;
+
+
+
+-- 4
+DECLARE
+    v_name FACULTY.FACULTY_NAME%TYPE;
+BEGIN
+    SELECT FACULTY_NAME INTO v_name
+    FROM FACULTY
+    WHERE FACULTY = 'НЕ_СУЩЕСТВУЕТ';
+
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+        DBMS_OUTPUT.PUT_LINE('Данных нет.');
+        DBMS_OUTPUT.PUT_LINE('SQL%NOTFOUND = ' || CASE WHEN SQL%NOTFOUND THEN 'TRUE' ELSE 'FALSE' END);
+        DBMS_OUTPUT.PUT_LINE('SQL%ROWCOUNT = ' || SQL%ROWCOUNT);
+END;
+
+
+
+-- 5
+DECLARE
+    v_old NUMBER;
+BEGIN
+    SELECT AUDITORIUM_CAPACITY INTO v_old FROM AUDITORIUM WHERE AUDITORIUM='206-1';
+
+    UPDATE AUDITORIUM SET AUDITORIUM_CAPACITY = v_old + 1
+    WHERE AUDITORIUM='206-1';
+    
+    --ROLLBACK;
+    COMMIT;
+END;
+
+
+
+-- 6
+BEGIN
+    UPDATE AUDITORIUM
+    SET AUDITORIUM_TYPE = 'НЕ_СУЩ'
+    WHERE AUDITORIUM = '206-1';
+
+    COMMIT;
+
+EXCEPTION
+    WHEN OTHERS THEN
+        DBMS_OUTPUT.PUT_LINE('Ошибка целостности: ' || SQLERRM);
+        ROLLBACK;
+END;
+
+
+
+-- 7
+BEGIN
+    INSERT INTO FACULTY(FACULTY, FACULTY_NAME)
+    VALUES ('TEST', 'Тестовый факультет');
+    -- ROLLBACK;
+    COMMIT;
+END;
+
+
+
+-- 8
+BEGIN
+    INSERT INTO FACULTY(FACULTY, FACULTY_NAME)
+    VALUES ('ИДиП', 'Дубликат');
+
+    COMMIT;
+
+EXCEPTION
+    WHEN DUP_VAL_ON_INDEX THEN
+        DBMS_OUTPUT.PUT_LINE('Ошибка: нарушение уникальности');
+        ROLLBACK;
+END;
+
+
+
+--  9
+BEGIN
+    DELETE FROM FACULTY WHERE FACULTY='TEST';
+    -- ROLLBACK;
+    COMMIT;
+END;
+
+
+
+-- 10
+BEGIN
+    DELETE FROM FACULTY WHERE FACULTY='ИДиП';
+
+    COMMIT;
+EXCEPTION
+    WHEN OTHERS THEN
+        DBMS_OUTPUT.PUT_LINE('Ошибка удаления: ' || SQLERRM);
+        ROLLBACK;
+END;
+
+
+
+-- ЯВНЫЕ КУРСОРЫ
+
+-- 11
+DECLARE
+    CURSOR c IS SELECT TEACHER, TEACHER_NAME, PULPIT FROM TEACHER;
+    v_code TEACHER.TEACHER%TYPE;
+    v_name TEACHER.TEACHER_NAME%TYPE;
+    v_pulpit TEACHER.PULPIT%TYPE;
+BEGIN
+    OPEN c;
+    LOOP
+        FETCH c INTO v_code, v_name, v_pulpit;
+        EXIT WHEN c%NOTFOUND;
+        DBMS_OUTPUT.PUT_LINE(v_code || ' - ' || v_name || ' - ' || v_pulpit);
+    END LOOP;
+    CLOSE c;
+END;
+
+
+
+-- 12
+DECLARE
+    CURSOR c IS SELECT * FROM SUBJECT;
+    r c%ROWTYPE;
+BEGIN
+    OPEN c;
+    FETCH c INTO r;
+    WHILE c%FOUND LOOP
+        DBMS_OUTPUT.PUT_LINE(r.SUBJECT || ' - ' || r.SUBJECT_NAME || ' - ' || r.PULPIT);
+        FETCH c INTO r;
+    END LOOP;
+    CLOSE c;
+END;
+
+
+
+-- 13
+DECLARE
+    CURSOR c IS
+        SELECT p.PULPIT_NAME, t.TEACHER_NAME
+        FROM PULPIT p JOIN TEACHER t ON p.PULPIT = t.PULPIT;
+BEGIN
+    FOR r IN c LOOP
+        DBMS_OUTPUT.PUT_LINE(r.PULPIT_NAME || ' : ' || r.TEACHER_NAME);
+    END LOOP;
+END;
+
+
+
+-- 14
+DECLARE
+    CURSOR c(p_min NUMBER, p_max NUMBER) IS
+        SELECT AUDITORIUM, AUDITORIUM_CAPACITY
+        FROM AUDITORIUM
+        WHERE AUDITORIUM_CAPACITY BETWEEN p_min AND p_max
+        ORDER BY AUDITORIUM;
+
+    v_aud       AUDITORIUM.AUDITORIUM%TYPE;
+    v_capacity  AUDITORIUM.AUDITORIUM_CAPACITY%TYPE;
+    r_row c%ROWTYPE;
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('--- (0..20)');
+    FOR rec IN c(0, 20) LOOP
+        DBMS_OUTPUT.PUT_LINE('[' || rec.AUDITORIUM_CAPACITY || '] ' || rec.AUDITORIUM);
+    END LOOP;
+
+    DBMS_OUTPUT.PUT_LINE('--- (21..30)');
+    OPEN c(21,30);
+    LOOP
+        FETCH c INTO v_aud, v_capacity;
+        EXIT WHEN c%NOTFOUND;
+        DBMS_OUTPUT.PUT_LINE('[' || v_capacity || '] ' || v_aud);
+    END LOOP;
+    CLOSE c;
+
+    DBMS_OUTPUT.PUT_LINE('--- (31..60)');
+    OPEN c(31,60);
+    FETCH c INTO r_row.AUDITORIUM, r_row.AUDITORIUM_CAPACITY;
+    WHILE c%FOUND LOOP
+        DBMS_OUTPUT.PUT_LINE('[' || r_row.AUDITORIUM_CAPACITY || '] ' || r_row.AUDITORIUM);
+        FETCH c INTO r_row.AUDITORIUM, r_row.AUDITORIUM_CAPACITY;
+    END LOOP;
+    CLOSE c;
+
+    DBMS_OUTPUT.PUT_LINE('--- (61..80)');
+    FOR rec IN c(61,80) LOOP
+        DBMS_OUTPUT.PUT_LINE('[' || rec.AUDITORIUM_CAPACITY || '] ' || rec.AUDITORIUM);
+    END LOOP;
+
+    DBMS_OUTPUT.PUT_LINE('--- 81+');
+    FOR r IN (SELECT AUDITORIUM, AUDITORIUM_CAPACITY FROM AUDITORIUM WHERE AUDITORIUM_CAPACITY >= 81 ORDER BY AUDITORIUM) LOOP
+        DBMS_OUTPUT.PUT_LINE('[' || r.AUDITORIUM_CAPACITY || '] ' || r.AUDITORIUM);
+    END LOOP;
+END;
+
+
+
+-- 15
+DECLARE
+    TYPE ref_c IS REF CURSOR;
+    c   ref_c;
+    r   AUDITORIUM%ROWTYPE;
+
+    p_min NUMBER := 30;
+    p_max NUMBER := 60;
+BEGIN
+    OPEN c FOR
+        SELECT *
+        FROM AUDITORIUM
+        WHERE AUDITORIUM_CAPACITY BETWEEN p_min AND p_max;
+    LOOP
+        FETCH c INTO r;
+        EXIT WHEN c%NOTFOUND;
+        DBMS_OUTPUT.PUT_LINE(r.AUDITORIUM || ' (' || r.AUDITORIUM_CAPACITY || ')');
+    END LOOP;
+    CLOSE c;
+END;
+
+
+
+-- 16
+DECLARE
+    CURSOR c IS
+        SELECT FACULTY,
+               (SELECT COUNT(*) FROM PULPIT p WHERE p.FACULTY=f.FACULTY) AS CNT
+        FROM FACULTY f;
+BEGIN
+    FOR r IN c LOOP
+        DBMS_OUTPUT.PUT_LINE(r.FACULTY || ': ' || r.CNT);
+    END LOOP;
+END;
+
+
+
+-- 17
+DECLARE
+    CURSOR c(p_min NUMBER, p_max NUMBER) IS
+        SELECT AUDITORIUM, AUDITORIUM_CAPACITY
+        FROM AUDITORIUM
+        WHERE AUDITORIUM_CAPACITY BETWEEN p_min AND p_max
+        FOR UPDATE;
+
+    v_aud       AUDITORIUM.AUDITORIUM%TYPE;
+    v_capacity  AUDITORIUM.AUDITORIUM_CAPACITY%TYPE;
+BEGIN
+    OPEN c(40, 80);
+
+    LOOP
+        FETCH c INTO v_aud, v_capacity;
+        EXIT WHEN c%NOTFOUND;
+
+        UPDATE AUDITORIUM
+        SET AUDITORIUM_CAPACITY = ROUND(v_capacity * 0.9)
+        WHERE CURRENT OF c;
+    END LOOP;
+
+    CLOSE c;
+    COMMIT;
+
+    DBMS_OUTPUT.PUT_LINE('Вместимость уменьшена');
+END;
+
+
+
+-- 18
+DECLARE
+    CURSOR c(p_min NUMBER, p_max NUMBER) IS
+        SELECT AUDITORIUM, AUDITORIUM_CAPACITY
+        FROM AUDITORIUM
+        WHERE AUDITORIUM_CAPACITY BETWEEN p_min AND p_max
+        FOR UPDATE;
+
+    v_aud       AUDITORIUM.AUDITORIUM%TYPE;
+    v_capacity  AUDITORIUM.AUDITORIUM_CAPACITY%TYPE;
+BEGIN
+    OPEN c(0, 20);
+    FETCH c INTO v_aud, v_capacity;
+
+    WHILE c%FOUND LOOP
+        DELETE FROM AUDITORIUM
+        WHERE CURRENT OF c;
+
+        FETCH c INTO v_aud, v_capacity;
+    END LOOP;
+
+    CLOSE c;
+    COMMIT;
+
+    DBMS_OUTPUT.PUT_LINE('Аудитории удалены');
+END;
+
+
+
+-- 19
+DECLARE
+    v_rowid ROWID;
+BEGIN
+    SELECT ROWID INTO v_rowid FROM AUDITORIUM WHERE AUDITORIUM='236-1';
+
+    UPDATE AUDITORIUM SET AUDITORIUM_NAME='NEWNAME' WHERE ROWID=v_rowid;
+
+    DELETE FROM AUDITORIUM WHERE ROWID=v_rowid;
+
+    COMMIT;
+    
+    DBMS_OUTPUT.PUT_LINE('Столбец обнавлен и удален');
+END;
+
+
+
+--20
+DECLARE
+    CURSOR c IS SELECT TEACHER_NAME FROM TEACHER;
+    counter NUMBER := 0;
+BEGIN
+    FOR r IN c LOOP
+        counter := counter + 1;
+        DBMS_OUTPUT.PUT_LINE(r.TEACHER_NAME);
+
+        IF counter = 3 THEN
+            DBMS_OUTPUT.PUT_LINE('------------------------------');
+            counter := 0;
+        END IF;
+    END LOOP;
+END;
+
